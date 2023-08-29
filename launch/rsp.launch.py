@@ -12,6 +12,11 @@ import xacro
 
 def generate_launch_description():
 
+    rviz_config_dir = os.path.join(
+        get_package_share_directory('sllidar_ros2'),
+        'rviz',
+        'sllidar_ros2.rviz')
+
     # Check if we're told to use sim time
     use_sim_time = LaunchConfiguration('use_sim_time')
 
@@ -22,6 +27,7 @@ def generate_launch_description():
     
     # Create a robot_state_publisher node
     params = {'robot_description': robot_description_config.toxml(), 'use_sim_time': use_sim_time}
+    
     node_robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
@@ -29,7 +35,17 @@ def generate_launch_description():
         parameters=[params]
     )
 
+    rviz = Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            arguments=['-d', rviz_config_dir],
+            output='screen'
+    )
+    
 
+
+    
     # Launch!
     return LaunchDescription([
         DeclareLaunchArgument(
@@ -37,5 +53,6 @@ def generate_launch_description():
             default_value='false',
             description='Use sim time if true'),
 
-        node_robot_state_publisher
+        node_robot_state_publisher,
+        rviz
     ])
