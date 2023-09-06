@@ -39,25 +39,25 @@
     <joint name="chassis_joint" type="fixed">
         <parent link="base_link"/>
         <child link="chassis"/>
-        <origin xyz="-0.1 0 0"/>
+        <origin xyz="-0.090 0 0"/>
     </joint>
 
     <link name="chassis">
         <visual>
-            <origin xyz="0.17 0 0.06" rpy="0 0 0"/>
+            <origin xyz="0.145 0 0.0455" rpy="0 0 0"/>
             <geometry>
-               <box size="0.34 0.30 0.02"/>
+               <box size="0.290 0.190 0.091"/>
             </geometry>
             <material name="grey"/>
         </visual>
 
-        <visual>
+        <!--<visual>
             <origin xyz="0.330 0 0.10" rpy="0 0 0"/>
             <geometry>
                <box size="0.020 0.020 0.100"/>
             </geometry>
             <material name="grey"/>
-        </visual>
+        </visual>-->
 
     </link>
 
@@ -68,7 +68,7 @@
     <joint name="left_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="left_wheel"/>
-        <origin xyz="0 0.172 0" rpy="-${pi/2} 0 0"/>
+        <origin xyz="0 0.102 0" rpy="-${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
     </joint>
 
@@ -88,7 +88,7 @@
     <joint name="right_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="right_wheel"/>
-        <origin xyz="0 -0.172 0" rpy="${pi/2} 0 0"/>
+        <origin xyz="0 -0.102 0" rpy="${pi/2} 0 0"/>
         <axis xyz="0 0 -1"/>
     </joint>
 
@@ -106,7 +106,7 @@
     <joint name="caster_wheel_joint" type="fixed">
         <parent link="chassis"/>
         <child link="caster_wheel"/>
-        <origin xyz="0.33 0 0" rpy="0 0 0"/>
+        <origin xyz="0.280 0 0" rpy="0 0 0"/>
     </joint>
 
     <link name="caster_wheel">
