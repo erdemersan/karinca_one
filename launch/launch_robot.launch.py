@@ -21,7 +21,7 @@ def generate_launch_description():
 
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory(package_name),'launch','rsp.launch.py'
+                    get_package_share_directory("karinca_one"),'launch','rsp.launch.py'
                 )]),
     )
 
@@ -45,7 +45,7 @@ def generate_launch_description():
 
     robot_description = Command(['ros2 param get --hide-type /robot_state_publisher robot_description'])
 
-    controller_params_file = os.path.join(get_package_share_directory(package_name),'config','my_controllers.yaml')
+    controller_params_file = os.path.join(get_package_share_directory("karinca_one"),'config','my_controllers.yaml')
 
     controller_manager = Node(
         package="controller_manager",

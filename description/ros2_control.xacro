@@ -4,6 +4,8 @@
     <ros2_control name="RealRobot" type="system">
         <hardware>
             <plugin>dynamixel_hardware/DynamixelHardware</plugin>
+            <param name="right_wheel_name">right_wheel_joint</param>
+            <param name="left_wheel_name">left_wheel_joint</param>
             <param name="usb_port">/dev/ttyUSB0</param>
             <param name="baud_rate">57600</param>
         </hardware>
