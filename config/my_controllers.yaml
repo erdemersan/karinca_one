@@ -1,5 +1,5 @@
 controller manager:
-  ros_parameters:
+  ros__parameters:
     update rate: 30
     use_sim_time: false
   
